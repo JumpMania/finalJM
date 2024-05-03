@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Skyhop</title>
+        <link rel="stylesheet" type="text/css" href="Skyhop.css">
+        <link rel="icon" type="image/x-icon" href="skyhopIcon.jpg">
+        <script type="text/javascript" src="Skyhop.js"></script>
+    </head>
+
+    <body>
+        <div id="loader">
+            <div class="spinner"></div>
+        </div>
+        <!--Game Exit-->
+        <div class="exit_border">
+            <a href="index.html" class="exit">x</a>
+        </div>
+        <div class="icon_container">
+            <img src="skyhopIcon.jpg" alt="Icon" class="image1">
+        </div>
+        <h1 class="title">Skyhop</h1>
+        <!--Game Tutorial-->
+            <div class="tutorial">
+                <p class="text_control">Game Control</p>
+            <div class="button1">
+                <p class="button_A">A</p>
+                <p class="button_D">D</p>
+            </div>
+            <div class="button2">
+                <p class="arrow_L">&#8592;</p>
+                <p class="arrow_R">&#8594;</p>
+            </div>
+            </div>
+        <div class="container">
+            <button class="single">
+                <a href="Skyhop_Single.html" class="singleplayer">singleplayer</a>
+            </button>
+            <button class="multi">
+                <a href="Skyhop_Multi.html" class="multiplayer">multiplayer</a>
+            </button>
+            <div class="option">
+                <a href="#" class="sound" onclick="toggleSound()">Sound</a>
+                <a href="#" class="music" onclick="toggleMusic()">Music</a>
+            </div>
+
+            <audio id="myAudio">
+                <source src="homeMusic1.mp3" type="audio/mpeg">
+        
+            </audio>
+
+        </div>
+        <script>
+            window.onload = function() {
+  document.getElementById("loader").style.display = "none";
+            }
+            let music = document.getElementById("myAudio");
+            let soundEnabled = true;
+            let playing = false;
+
+            function playMusic() {
+                music.play(); 
+            }
+
+            function toggleMusic() {
+                playing = !playing; 
+                if (playing) {
+                    playMusic();
+                    music.muted = false; 
+                } else {
+                    music.pause(); 
+                    music.currentTime = 0;
+                    music.muted = true; 
+                }
+            }
+
+            function toggleSound(){
+                soundEnabled = !soundEnabled;
+            }
+
+            function playButtonSound() {
+                if (soundEnabled) {
+                    const button = new Audio("button1.mp3");
+                    button.play();
+                }
+            }
+
+            document.addEventListener('click', function() {
+                playButtonSound();
+            });
+            </script>
+    </body>
+</html>

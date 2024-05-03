@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Skyhop</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="Skyhop_Single.css">
+  <link rel="icon" type="image/x-icon" href="skyhopIcon.jpg">
+</head>
+
+<body>
+  <div id="loader">
+    <div class="spinner"></div>
+</div>
+  <div class="exit_border">
+      <a href="Skyhop.html" class="exit">Exit</a>
+  </div>
+  <div class="option">
+    <a href="#" class="sound">Sound</a>
+    <a href="#" class="music">Music</a>
+  </div>
+  <div id="player">
+    <canvas width="340" height="600" id="game"></canvas>
+    <script src="Skyhop_Single.js"></script>
+  </div>
+  <div id="score">
+    <canvas width="120" height="70" id="scoreCanvas"></canvas>
+    <script src="Skyhop_Single.js"></script>
+  </div>
+  <div>
+    <canvas width="160" height="130" id="tutorial"></canvas>
+    <script src="Skyhop_Single.js"></script>
+  </div>
+  <script>
+    window.onload = function() {
+  document.getElementById("loader").style.display = "none";
+};
+  </script>
+</body>
+</html>

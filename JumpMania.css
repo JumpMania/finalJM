@@ -1,0 +1,657 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  background-image: url(HOME\ BG.png);
+  background-size: 2560px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+}
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  background-image: linear-gradient(to right, #f0d978,#7898f0);
+}
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 5px solid #f3f3f3; 
+  border-top: 5px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.icon_container {
+  position: absolute;
+  width: 100%;
+  max-width: 100px;
+  top: 40px;
+  left: 520px;
+  border: 2px solid;
+  border-radius: 15px;
+}
+.image1 {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+}
+.title{
+  text-align: center;
+  margin-top: 50px;
+  font-size: 75px;
+  margin-left: 300px;
+  margin-right: 130px;
+  font-family: "Jua", sans-serif;
+}
+.description{
+  height: 200px;
+  width: 1070px;
+  border: 2px solid;
+  border-radius: 10px;
+  position: relative;
+  margin-top: 20px;
+  left: 235px;
+  background-color: rgb(255,236,200);
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  text-align: center;
+  font-size: 18px;
+}
+/*Gameplay Slides*/
+.container {
+  margin-top: 50px;
+  width: 64%;
+  border: 2px solid;
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+  position: relative;
+  left: 280px;
+  background-color: rgb(255, 236, 200);
+}
+.carousel {
+  width: 300px;
+  height: 200px;
+  overflow: hidden;
+  margin-right: 10px;
+  margin-left: 10px;
+  border: 2px solid;
+  position: relative;
+}
+.carousel .slides {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+.carousel .slide {
+  flex: 0 0 300px;
+  height: 100%;
+}
+.carousel .slide img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: 200px;
+}
+/*Skyhop Main Game*/
+.skyhop{
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin-top: 120px;
+  top: 645px;
+  left: 100px;
+  position: absolute;
+  background-color: rgb(255, 210, 120);
+  padding: 5px 10px;
+}
+.skyhop_des{
+  margin-top: 180px;
+  height: 250px;
+  width: 350px;
+  border: 2px solid;
+  border-radius: 10px;
+  position: relative;
+  bottom: auto;
+  left: 100px;
+  overflow: hidden;
+  background-color: rgb(255, 236, 200);
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  text-align: center;
+}
+.skyhop_play{
+  color: black;
+  font-size: large;
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid black;
+  position: absolute;
+  top: 920px;
+  left: 470px;
+  background-color: rgb(255, 210, 120);
+  cursor: pointer;
+  padding: 8px 10px;
+  text-transform: uppercase;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgb(0,0,0,0.1);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+
+}
+.skyhop_play:hover, .skyhop_play:focus, .skyhop_play:active{
+  box-shadow: 0 0 20px rgb(0,0,0,0.6);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+/*Trail Dash Mini Game*/
+.trail_dash{
+  text-align: center;
+  padding: 5px 10px;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin-top: 120px;
+  top: 645px;
+  left: 600px;
+  position: absolute;
+  background-color: rgb(255, 210, 120);
+}
+.trail_dash_des{
+  height: 180px;
+  width: 350px;
+  border: 2px solid;
+  border-radius: 10px;
+  position: absolute;
+  top: 810px;
+  left: 600px;
+  overflow: hidden;
+  background-color: rgb(255, 236, 200);
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  text-align: center;
+}
+.trail_dash_play{
+  color: black;
+  font-size: large;
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid;
+  position: absolute;
+  top: 880px;
+  left: 1370px;
+  background-color: rgb(255, 210, 120);
+  cursor: pointer;
+  padding: 8px 10px;
+  text-transform: uppercase;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgb(0,0,0,0.1);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+}
+.trail_dash_play:hover, .trail_dash_play:focus, .trail_dash_play:active{
+  box-shadow: 0 0 20px rgb(0,0,0,0.6);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+/*Tower Climber Mini Game*/
+.tower_climber{
+  text-align: center;
+  padding: 5px 10px;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin-top: 120px;
+  top: 920px;
+  left: 600px;
+  position: absolute;
+  background-color: rgb(255, 210, 120);
+}
+.tower_climber_des{
+  height: 180px;
+  width: 350px;
+  border: 2px solid;
+  border-radius: 10px;
+  position: absolute;
+  top: 1090px;
+  left: 600px;
+  overflow: hidden;
+  background-color: rgb(255, 236, 200);
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  text-align: center;
+}
+.tower_climber_play{
+  color: black;
+  font-size: large;
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid;
+  position: absolute;
+  top: 1160px;
+  left: 1370px;
+  background-color: rgb(255, 210, 120);
+  cursor: pointer;
+  padding: 8px 10px;
+  text-transform: uppercase;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgb(0,0,0,0.1);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+}
+.tower_climber_play:hover, .tower_climber_play:focus, .tower_climber_play:active{
+  box-shadow: 0 0 20px rgb(0,0,0,0.6);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+/*Skyhop SLides Main Game*/
+#skyhop_container{
+  position: absolute;
+  overflow: hidden;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  left: 100px;
+  border: 2px solid;
+}
+.image {
+  height: 200px;
+  width: 460px;
+  overflow: hidden;
+}
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+/*Trail Dash Mini Game*/
+#trail_dash_container {
+  position: absolute;
+  overflow: hidden;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  top: 790px;
+  left: 965px;
+  border: 2px solid;
+}
+.image2 {
+  height: 180px;
+  width: 390px;
+  overflow: hidden;
+}
+.image2 img {
+  height: 180px;
+  width: 390px;
+  object-fit: cover;
+  cursor: pointer;
+}
+/*Tower Climber Mini Game*/
+#tower_climber_container{
+  position: absolute;
+  overflow: hidden;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  top: 1070px;
+  left: 965px;
+  border: 2px solid;
+}
+.image3 {
+  height: 180px;
+  width: 390px;
+  overflow: hidden;
+}
+.image3 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+/*Click to Full Screen*/
+#fullscreen {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 9999;
+}
+#fullscreen img {
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+.gallery1{
+  background-color: rgb(255, 210, 120);
+  margin-top: 20px;
+  position: absolute;
+  overflow: hidden;
+  left: 100px;
+  border: 2px solid;
+  display: block;
+  padding: 5px 5px;
+  height: 215px;
+  width: 475px;
+}
+.gallery-item1{
+  height: 100px;
+  width: 230px;
+  border: 2px solid;
+  overflow: hidden;
+  position: absolute;
+  display: flex;
+  overflow: hidden;
+  cursor: pointer;
+}
+.gallery-item2{
+  height: 100px;
+  width: 230px;
+  border: 2px solid;
+  overflow: hidden;
+  position: absolute;
+  display: flex;
+  overflow: hidden;
+  cursor: pointer;
+  left: 245px;
+}
+.gallery-item3{
+  height: 100px;
+  width: 230px;
+  border: 2px solid;
+  overflow: hidden;
+  position: absolute;
+  display: flex;
+  overflow: hidden;
+  cursor: pointer;
+  top: 115px;
+}
+.gallery-item4{
+  height: 100px;
+  width: 230px;
+  border: 2px solid;
+  overflow: hidden;
+  position: absolute;
+  display: flex;
+  overflow: hidden;
+  cursor: pointer;
+  top: 115px;
+  left: 245px;
+}
+.gallery-item1 img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  display: block;
+}
+.gallery-item2 img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  display: block;
+}
+.gallery-item3 img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  display: block;
+}
+.gallery-item4 img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  display: block;
+}
+.modal1{
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat no-repeat;
+  background-position: center center;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.modal1 img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.gallery2{
+  background-color: rgb(255, 210, 120);
+  margin-top: 20px;
+  position: absolute;
+  overflow: hidden;
+  top: 790px;
+  left: 965px;
+  border: 2px solid;
+  display: block;
+  padding: 5px 5px;
+  height: 170px;
+  width: 375px;
+}
+.gallery-item5{
+  height: 80px;
+  width: 180px;
+  border: 2px solid;
+  overflow: hidden;
+  position: absolute;
+  display: flex;
+  overflow: hidden;
+  cursor: pointer;
+}
+.gallery-item6{
+  height: 80px;
+  width: 180px;
+  border: 2px solid;
+  overflow: hidden;
+  position: absolute;
+  display: flex;
+  overflow: hidden;
+  cursor: pointer;
+  left: 195px;
+}
+.gallery-item7{
+  height: 80px;
+  width: 180px;
+  border: 2px solid;
+  overflow: hidden;
+  position: absolute;
+  display: flex;
+  overflow: hidden;
+  cursor: pointer;
+  top: 92.5px;
+}
+.gallery-item8{
+  height: 80px;
+  width: 180px;
+  border: 2px solid;
+  overflow: hidden;
+  position: absolute;
+  display: flex;
+  overflow: hidden;
+  cursor: pointer;
+  top: 92.5px;
+  left: 195px;
+}
+.gallery-item5 img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  display: block;
+}
+.gallery-item6 img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  display: block;
+}
+.gallery-item7 img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  display: block;
+}
+.gallery-item8 img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  display: block;
+}
+.modal2{
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat no-repeat;
+  background-position: center center;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.modal2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.gallery3{
+  background-color: rgb(255, 210, 120);
+  margin-top: 20px;
+  position: absolute;
+  overflow: hidden;
+  top: 1070px;
+  left: 965px;
+  border: 2px solid;
+  display: block;
+  padding: 5px 5px;
+  height: 170px;
+  width: 375px;
+}
+.gallery-item9{
+  height: 80px;
+  width: 180px;
+  border: 2px solid;
+  overflow: hidden;
+  position: absolute;
+  display: flex;
+  overflow: hidden;
+  cursor: pointer;
+}
+.gallery-item10{
+  height: 80px;
+  width: 180px;
+  border: 2px solid;
+  overflow: hidden;
+  position: absolute;
+  display: flex;
+  overflow: hidden;
+  cursor: pointer;
+  left: 195px;
+}
+.gallery-item11{
+  height: 80px;
+  width: 180px;
+  border: 2px solid;
+  overflow: hidden;
+  position: absolute;
+  display: flex;
+  overflow: hidden;
+  cursor: pointer;
+  top: 92.5px;
+}
+.gallery-item12{
+  height: 80px;
+  width: 180px;
+  border: 2px solid;
+  overflow: hidden;
+  position: absolute;
+  display: flex;
+  overflow: hidden;
+  cursor: pointer;
+  top: 92.5px;
+  left: 195px;
+}
+.gallery-item9 img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  display: block;
+}
+.gallery-item10 img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  display: block;
+}
+.gallery-item11 img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  display: block;
+}
+.gallery-item12 img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  display: block;
+}
+.modal3{
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat no-repeat;
+  background-position: center center;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.modal3 img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}

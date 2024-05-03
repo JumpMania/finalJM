@@ -1,0 +1,129 @@
+body{
+  margin: 0;
+  padding: 0;
+  background-image: url(SKYHOP\ BG.png);
+  background-size: 2560px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+}
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #7898f0;;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999; 
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 5px solid #f3f3f3; 
+  border-top: 5px solid #3498db; 
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+#player{
+  border: 2px solid black;
+  background-image: url(shbg.jpg);
+  background-size: 340px 600px ;
+}
+#score{
+  border: 2px solid black;
+  background-color: rgb(152, 216, 255);
+  position: absolute;
+  border-radius: 5px;
+  top: 68px;
+  right: 27%;
+}
+#tutorial{
+  border: 2px solid black;
+  background-color: rgb(152, 216, 255);
+  position: absolute;
+  border-radius: 5px;
+  top: 300px;
+  right: 24%;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.exit_border{
+  height: 20px;
+  width: 145px;
+  border: 2px solid;
+  border-radius: 5px;
+  display: block;
+  position: absolute;
+  top: 300px;
+  left: 25%;
+}
+.exit_border:active {
+  transform: translateY(2px); 
+  box-shadow: none;          
+}
+.exit{
+  color: black;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  padding: 0px 10px;
+  border-radius: 5px;
+  background-color: rgb(99, 151, 255);
+}
+.exit:active {
+  transform: translateY(2px); 
+  box-shadow: none;          
+}
+.option{
+  text-align: center;
+}
+.sound{
+  padding: 8px 13px;
+  color: black;
+  font-family: "Noto Sans Lao Looped", sans-serif;
+  border: 2px solid;
+  border-radius: 10px;
+  text-decoration: none;
+  text-align: center;
+  position: absolute;
+  top: 330px;
+  left: 25%;
+  background-color: rgb(99, 151, 255);
+}
+.sound:active {
+  transform: translateY(2px); 
+  box-shadow: none;          
+}
+.music{
+  padding: 8px 13px;
+  color: black;
+  font-family: "Noto Sans Lao Looped", sans-serif;
+  border: 2px solid;
+  border-radius: 10px;
+  text-decoration: none;
+  text-align: center;
+  position: absolute;
+  top: 330px;
+  left: 30%;
+  background-color: rgb(99, 151, 255);
+}
+.music:active {
+  transform: translateY(2px); 
+  box-shadow: none;          
+}

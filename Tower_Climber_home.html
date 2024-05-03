@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tower Climber</title>
+    <link rel="icon" type="image/x-icon" href="tower_climber icon.jpg">
+    <link rel="stylesheet" type="text/css" href="Tower_Climber_home.css">
+</head>
+
+<body>
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
+    <!--Exit Button-->
+    <div class="exit_border">
+        <a href="index.html" class="exit">X</a>
+    </div>
+    <!--Game Tutorial-->
+    <div class="icon_container">
+        <img src="tower_climber icon.jpg" alt="Icon" class="image1">
+        <div class="overlay">
+        <a href="#" class="icon" title="User Profile">
+          <i class="fa fa-user"></i>
+        </a>
+        </div>
+    </div>
+    <h1 class="title">Tower Climber</h1>
+    <div class="tutorial">
+        <p class="text_control">Game Control</p>
+        <div class="button1">
+            <p class="button_A">A</p>
+            <p class="button_W">W</p>
+            <p class="button_D">D</p>
+        </div>
+    </div>
+    <button id="single">
+        <a href="Tower_Climber.html" id="start">Start</a>
+    </button>
+    <div class="option">
+        <a href="#" class="sound" onclick="toggleSound()">Sound</a>
+        <a href="#" class="music" onclick="toggleMusic(),playMusic()">Music</a>
+    </div>
+    <script>
+        window.onload = function() {
+  document.getElementById("loader").style.display = "none";
+            }
+        let soundEnabled = true;
+        let music = new Audio("tower_home.mp3");
+        
+        
+            let playing = false;
+
+            function playMusic() {
+                music.play(); 
+            }
+
+            function toggleMusic() {
+                playing = !playing; 
+                if (playing) {
+                    playMusic();
+                    music.muted = false; 
+                } else {
+                    music.pause(); 
+                    music.currentTime = 0;
+                    music.muted = true; 
+                }
+            }
+
+            function toggleSound(){
+                soundEnabled = !soundEnabled;
+            }
+
+            function playButtonSound() {
+                if (soundEnabled) {
+                    const button = new Audio("button1.mp3");
+                    button.play();
+                }
+            }
+
+            document.addEventListener('click', function() {
+                playButtonSound();
+            });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Trail Dash</title>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/x-icon" href="Traildash Icon.png">
+  <link rel="stylesheet" type="text/css" href="Trail_Dash.css">
+</head>
+<body>
+  
+  <div id="loader">
+    <div class="spinner"></div> </div>
+  <div class="exit_border">
+      <a href="Trail_Dash_home.html" class="exit">Exit</a>
+  </div>
+  <div class="option">
+    <a href="#" class="sound">Sound</a>
+    <a href="#" class="music">Music</a>
+  </div>
+  <div id="player">
+    <canvas width="1000" height="450" id="game"></canvas>
+    <script src="Trail_Dash.js"></script>
+  </div>
+</body>
+  <div class="score">
+    <canvas width="120" height="60" id="scoreCanvas"></canvas>
+    <script src="Trail_Dash.js"></script>
+  </div>
+  <div class="tutorial">
+    <canvas width="160" height="90" id="tutorial"></canvas>
+    <script src="Skyhop_Single.js"></script>
+  </div>
+  <script>
+         window.onload = function() {
+  document.getElementById("loader").style.display = "none";
+};
+  </script>
+
+</html>

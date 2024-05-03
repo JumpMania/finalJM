@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Skyhop</title>
+  <link rel="icon" type="image/x-icon" href="skyhopIcon.jpg">
+</head>
+<body>
+  <div id="loader">
+    <div class="spinner"></div>
+</div>
+    <div id="player1">
+        <canvas id="game1"width="340" height="600"></canvas>
+    </div>
+    <div id="player2">
+        <canvas id="game2"width="340" height="600"></canvas>
+    </div>
+    <div id="score1">
+        <canvas id="scoreCanvas1"width="150" height="130" ></canvas>
+    </div>
+    <div id="score2">
+        <canvas id="scoreCanvas2"width="150" height="130" ></canvas>
+    </div>
+    <div id="tutorial">
+        <canvas id="tutorial" ></canvas>
+    </div>
+    <div id="reset">
+        <canvas id="resetCanvas" width="170" height="130"></canvas>
+    </div>
+    <div class="exit_border">
+      <a href="Skyhop.html" class="exit">Exit</a>
+    </div>
+    <div class="option">
+      <a href="#" class="sound">Sound</a>
+      <a href="#" class="music">Music</a>
+    </div>
+    
+  <style>
+body {
+  background-image: url(SKYHOP\ BG.png);
+  background-size: 2560px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+  }
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #7898f0;;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999; 
+}
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 5px solid #f3f3f3; 
+  border-top: 5px solid #3498db; 
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+#reset {
+  position: absolute;
+  width: 170px;
+  height: 130px;
+  top: auto;
+  background-color: rgb(152, 216, 255);
+}
+#reset {
+  right: 695px;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+#player1, #player2 {
+  position: absolute;
+  top: 20px;
+  width: 340px;
+  height: 600px;
+  background-image: url(shbg.jpg);
+  background-size: 340px 600px;
+}
+#player2 {
+  right: 53%;
+  transform: translateX(-50%);
+  border: 2px solid black;
+}
+#player1 {
+  left: 53%;
+  transform: translateX(50%);
+  border: 2px solid black;
+}
+#score1, #score2 {
+  position: absolute;
+  top: 20px;
+  width: 150px;
+  height: 130px;
+  background-color: rgb(152, 216, 255);
+}
+#score2 {
+  left:43%;
+  transform: translateX(-50%);
+  border: 2px solid black;
+  border-radius: 5px;
+}
+#score1 {
+  right: 43%;
+  transform: translateX(50%);
+  border: 2px solid black;
+  border-radius: 5px;
+}
+.exit_border{
+  height: 20px;
+  width: 145px;
+  border: 2px solid;
+  border-radius: 5px;
+  display: block;
+  position: absolute;
+  top: 340px;
+  left: 44.2%;
+}
+.exit_border:active {
+    transform: translateY(2px); 
+    box-shadow: none;          
+}
+.exit{
+  color: black;
+  text-decoration: none;
+  border-radius: 5px;
+  text-align: center;
+  display: block;
+  padding: 0px 10px;
+  background-color: rgb(99, 151, 255);
+}
+.exit:active {
+    transform: translateY(2px); 
+    box-shadow: none;          
+}
+.option{
+  text-align: center;
+  }
+.sound{
+  padding: 8px 13px;
+  color: black;
+  font-family: "Noto Sans Lao Looped", sans-serif;
+  border: 2px solid;
+  border-radius: 10px;
+  text-decoration: none;
+  text-align: center;
+  position: absolute;
+  top: 370px;
+  left: 44.2%;
+  background-color: rgb(99, 151, 255);
+}
+.sound:active {
+    transform: translateY(2px); 
+    box-shadow: none;          
+}
+.music{
+  padding: 8px 13px;
+  color: black;
+  font-family: "Noto Sans Lao Looped", sans-serif;
+  border: 2px solid;
+  border-radius: 10px;
+  text-decoration: none;
+  text-align: center;
+  position: absolute;
+  top: 370px;
+  left: 49.2%;
+  background-color: rgb(99, 151, 255);
+}
+.music:active {
+    transform: translateY(2px); 
+    box-shadow: none;          
+}
+  </style>
+
+  <script>
+ window.onload = function() {
+  document.getElementById("loader").style.display = "none";
+};
+    const playerImage1 = new Image();
+    playerImage1.src = 'girl_front.png'; 
+    playerImage1.onload = () => {}; 
+
+    const playerImageR1 = new Image();
+    playerImageR1.src = 'girl_right.png'; 
+    playerImageR1.onload = () => {}; 
+
+    const playerImageL1 = new Image();
+    playerImageL1.src = 'girl_left.png'; 
+    playerImageL1.onload = () => {}; 
+
+
+
+    const playerImage2 = new Image();
+    playerImage2.src = 'boy_front.png'; 
+    playerImage2.onload = () => {}; 
+
+    const playerImageR2 = new Image();
+    playerImageR2.src = 'boy_right.png'; 
+    playerImageR2.onload = () => {}; 
+
+    const playerImageL2 = new Image();
+    playerImageL2.src = 'boy_left.png'; 
+    playerImageL2.onload = () => {}; 
+
+
+    const platformImage1 = new Image();
+    platformImage1.src = 'SKYHOP_PLATFORM.png';
+    platformImage1.onload = () => {}; 
+
+    const platformImage2 = new Image();
+    platformImage2.src = 'SKYHOP_PLATFORM.png';
+    platformImage2.onload = () => {}; 
+
+
+    const jumpSFX = new Audio("jump.mp3");
+    const jumpSFX2 = new Audio("jump2.mp3");
+    const startSFX = new Audio("gameStart.mp3");
+    jumpSFX.load();
+    jumpSFX2.load();
+    const winner = new Audio("winner.mp3");
+    startSFX.load();
+    winner.load();
+    const music2 = new Audio("music2.mp3")
+    music2.load();
+
+    const button1 = new Audio("button1.mp3");
+    let soundEnabled = true;
+    let soundPlayed = false;
+    const canvas1 = document.getElementById('game1');
+    const context1 = canvas1.getContext('2d');
+    const canvas2 = document.getElementById('game2');
+    const context2 = canvas2.getContext('2d');
+    const scoreCanvas1 = document.getElementById('scoreCanvas1'); 
+    const scoreCanvas2 = document.getElementById('scoreCanvas2'); 
+    const soundButton = document.querySelector('.sound');
+    const musicButton = document.querySelector('.music');
+    soundButton.addEventListener('click', toggleSound);
+    musicButton.addEventListener('click', toggleMusic);
+    music2.volume = 0.20;
+    jumpSFX2.volume = 0.10;
+
+    let platformWidth = 65;
+    let platformHeight = 15;
+    const platformStart = canvas1.height - 50;
+    const gravity = 0.33;
+    const bounceVelocity = -10.5; 
+    let minPlatformSpace = 90;
+    let maxPlatformSpace = 120;
+
+    let score1 = 0;
+    let score2 = 0;
+
+    
+    let platforms1 = [{
+      x: canvas1.width / 2 - platformWidth / 2,
+      y: platformStart
+    }]; 
+
+    let platforms2 = [{
+      x: canvas2.width / 2 - platformWidth / 2,
+      y: platformStart
+    }];
+
+    function random(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+  
+    let y = platformStart;
+    while (y > 0) {
+      y -= platformHeight + random(minPlatformSpace, maxPlatformSpace);
+      do {
+        x = random(1, canvas1.width - 1 - platformWidth);
+      } while ( y > canvas1.height / 2 && Math.abs(x - canvas1.width / 2) > platformWidth / 2 );
+      platforms1.push({ x, y });
+
+     
+      do {
+        x = random(1, canvas2.width - 1 - platformWidth);
+      } while ( y > canvas2.height / 2 && Math.abs(x - canvas2.width / 2) > platformWidth / 2 );
+      platforms2.push({ x, y }); 
+    }
+
+    const player1 = {
+      width: 30* 1.8,
+      height:45 *1.8,
+      x: canvas1.width /2 - 20,
+      y: platformStart - 100,
+      dx: 0,
+      dy: 0
+    };
+
+    const player2 = {
+      width: 30* 1.8,
+      height: 45* 1.8,
+      x: canvas2.width /2 - 20,
+      y: platformStart - 100,
+      dx: 0,
+      dy: 0
+    };
+
+    let keydown1 = false; 
+    let keydown2 = false; 
+    let prevPlayerY1 = player1.y; 
+    let prevPlayerY2 = player2.y; 
+    function toggleSound() {
+    jumpSFX.muted = !jumpSFX.muted;
+    jumpSFX2.muted = !jumpSFX2.muted;
+    winner.muted = !winner.muted;
+    startSFX.muted = !startSFX.muted;
+    button1.muted = !button1.muted;
+
+    }
+    function toggleMusic() {
+    music2.muted = !music2.muted;
+    }
+    
+    function playButtonSound() {
+    if (soundEnabled) {
+    button1.play();
+    }
+    }
+
+
+    function tutorial() {
+      const tutorial = document.getElementById('tutorial');
+      const ctx = tutorial.getContext('2d');
+      ctx.clearRect(0, 0, tutorial.width, tutorial.height);
+      ctx.font = '17px Arial';
+      ctx.fillStyle = 'black';
+      ctx.fillText('CONTROLS', 40, 40);
+      ctx.fillText('Player 1: \u2190 \u2192', 10, 90);
+      ctx.fillText('Player 2: A  D', 120, 90); 
+    }
+
+    function displayScore() {
+      const ctx1 = scoreCanvas1.getContext('2d');
+      ctx1.clearRect(0, 0, scoreCanvas1.width, scoreCanvas1.height);
+      ctx1.font = '20px Arial';
+      ctx1.fillStyle = 'black';
+      ctx1.fillText('Player 2: ', 10, 30);
+      ctx1.fillText(score1, 10, 50);
+
+      const ctx2 = scoreCanvas2.getContext('2d');
+      ctx2.clearRect(0, 0, scoreCanvas2.width, scoreCanvas2.height);
+      ctx2.font = '20px Arial';
+      ctx2.fillStyle = 'black';
+      ctx2.fillText('Player 1: ', 10, 30);
+      ctx2.fillText(score2, 10, 50);
+    }
+    function reset() {
+        const ctx = resetCanvas.getContext('2d');
+        ctx.clearRect(0, 0, resetCanvas.width, resetCanvas.height);
+        ctx.font = '20px Arial';
+        ctx.fillStyle = 'black';
+        ctx.fillText('Controls: ', 45, 29);
+        ctx.fillText('P1 - \u2190  \u2192', 40, 75);
+        ctx.fillText('P2 - A & D', 40, 105);
+
+        if (player1.y > canvas1.height || score2 >= 3000){
+            ctx.clearRect(0, 0, resetCanvas.width, resetCanvas.height);
+            ctx.fillText('Player 1 WINS!! ', 10, 50);
+            ctx.font = '15px Arial';
+            ctx.fillText('Press "Space" to reset ', 10, 100);
+             player2.y -= 600;
+           
+            if (!soundPlayed) {
+      
+      winner.play();
+      soundPlayed = true;
+  }
+            document.addEventListener('keydown', function(e) {
+            if (e.which === 32) {
+                resetGame();
+          }
+        });
+
+        }
+        else if(player2.y > canvas2.height || score1 >= 3000){
+            ctx.clearRect(0, 0, resetCanvas.width, resetCanvas.height);
+            ctx.fillText('Player 2 WINS!! ', 10, 50);
+            ctx.font = '15px Arial';
+            ctx.fillText('Press "Space" to reset ',10, 100 );
+            player1.y -= 600;
+            if (!soundPlayed) {
+      
+      winner.play();
+      soundPlayed = true;
+  }
+            document.addEventListener('keydown', function(e) {
+            if (e.which === 32) {
+                resetGame();
+          }
+        });
+        }
+      
+
+
+    }
+
+    function resetGame() {
+      music2.volume = 0.20;
+      score1 = 0;
+      score2 = 0;
+      platformWidth = 65;
+      platforms1 = [{
+        x: canvas1.width / 2 - platformWidth / 2,
+        y: platformStart
+      }];
+      platforms2 = [{
+        x: canvas2.width / 2 - platformWidth / 2,
+        y: platformStart
+      }];
+      player1.x = canvas1.width / 2  - player1.width / 2;
+      player1.y = platformStart - 100;
+      player1.dx = 0;
+      player1.dy = 0;
+      player2.x = canvas2.width / 2  - player2.width / 2;
+      player2.y = platformStart - 100;
+      player2.dx = 0;
+      player2.dy = 0;
+      y = platformStart;
+      while (y > 0) {
+        y -= platformHeight + random(minPlatformSpace, maxPlatformSpace);
+        do {
+          x = random(1, canvas1.width - 1 - platformWidth);
+        } while (
+          y > canvas1.height / 2 && Math.abs(x - canvas1.width / 2) > platformWidth / 2
+        );
+        platforms1.push({ x, y });
+
+       
+        do {
+          x = random(1, canvas2.width - 1 - platformWidth);
+        } while (
+          y > canvas2.height / 2 && Math.abs(x - canvas2.width / 2) > platformWidth / 2
+        );
+        platforms2.push({ x, y }); 
+      }
+    }
+
+    function loop() {
+      requestAnimationFrame(loop);
+      music2.play();
+      
+      context1.clearRect(0, 0, canvas1.width, canvas1.height);
+      player1.dy += gravity;
+
+      if (player1.y < canvas1.height / 2 && player1.dy < 0) {
+        platforms1.forEach(function(platform1) {
+          platform1.y += -player1.dy;
+        });
+
+        while (platforms1[platforms1.length - 1].y > 0) {
+          platforms1.push({
+            x: random(25, canvas1.width - 25 - platformWidth),
+            y: platforms1[platforms1.length - 1].y - (platformHeight + random(minPlatformSpace, maxPlatformSpace))
+        });
+        score1 += 100;  
+        if (platformWidth <= 30) {
+            platformWidth = 30;
+        }
+        else if (platformWidth >= 5) {
+            platformWidth -= 0.5;
+          }
+          
+        }
+        maxPlatformSpace = Math.min(maxPlatformSpace, canvas1.height / 2);
+      } 
+      else {
+        player1.y += player1.dy;
+      }
+
+      if (!keydown1) { 
+        player1.dx = 0;
+      }
+      player1.x += player1.dx;
+
+      if (player1.x + player1.width < 0) {
+        player1.x = canvas1.width;
+      } else if (player1.x > canvas1.width) {
+        player1.x = -player1.width;
+      } else if (player1.y > canvas1.height) {
+        context1.font = '40px Arial';
+        context1.fillStyle = 'black';
+        context1.fillText('GAME OVER', canvas1.width/2 - 115, canvas1.height/2);
+        context1.font = '25px Arial';
+        context1.fillStyle = 'black';
+        music2.volume = 0.05;
+        if (!soundPlayed) {
+      
+        winner.play();
+        soundPlayed = true;
+    }
+        document.addEventListener('keydown', function(e) {
+          if (e.which === 32) {
+            resetGame();
+            startSFX();
+            soundPlayed = false;
+          }
+        });
+      }
+
+      
+      platforms1.forEach(function(platform1) {
+       
+        context1.drawImage(platformImage1, platform1.x, platform1.y, platformWidth, platformHeight);
+        
+
+        if (
+          player1.dy > 0 &&
+          prevPlayerY1 + player1.height <= platform1.y &&
+          player1.x < platform1.x + platformWidth &&
+          player1.x + player1.width > platform1.x &&  
+          player1.y < platform1.y + platformHeight &&
+          player1.y + player1.height > platform1.y
+        ) {
+          player1.dy = bounceVelocity;
+          jumpSFX.play();
+        }
+      });
+
+      
+      
+
+
+if (player1.dx < 0) {
+    context1.drawImage(playerImageL1, player1.x, player1.y, player1.width, player1.height);
+} else if (player1.dx > 0) {
+    context1.drawImage(playerImageR1, player1.x, player1.y, player1.width, player1.height);
+} else {
+    context1.drawImage(playerImage1, player1.x, player1.y, player1.width, player1.height);
+}
+
+      prevPlayerY1 = player1.y;
+
+      platforms1 = platforms1.filter(function(platform1) {
+        return platform1.y < canvas1.height;
+      });
+
+   
+      context2.clearRect(0, 0, canvas2.width, canvas2.height);
+      player2.dy += gravity;
+
+      if (player2.y < canvas2.height / 2 && player2.dy < 0) {
+        platforms2.forEach(function(platform2) {
+          platform2.y += -player2.dy;
+        });
+
+        while (platforms2[platforms2.length - 1].y > 0) {
+          platforms2.push({
+            x: random(25, canvas2.width - 25 - platformWidth),
+            y: platforms2[platforms2.length - 1].y - (platformHeight + random(minPlatformSpace, maxPlatformSpace))
+          });
+          score2 += 100;
+          if (platformWidth <= 30) {
+            platformWidth = 30;
+          } else if (platformWidth >= 5) {
+            platformWidth -= 0.5;
+          }
+          
+        }
+        maxPlatformSpace = Math.min(maxPlatformSpace, canvas2.height / 2);
+      } else {
+        player2.y += player2.dy;
+      }
+
+      if (!keydown2) { 
+        player2.dx = 0;
+      }
+      player2.x += player2.dx;
+      if (player2.x + player2.width < 0) {
+        player2.x = canvas2.width;
+      } else if (player2.x > canvas2.width) {
+        player2.x = -player2.width;
+      } else if (player2.y > canvas2.height) {
+        context2.font = '40px Arial';
+        context2.fillStyle = 'black';
+        context2.fillText('GAME OVER', canvas2.width/2 - 115, canvas2.height/2);
+        context2.font = '25px Arial';
+        context2.fillStyle = 'black';
+        if (!soundPlayed) {
+      
+      winner.play();
+      soundPlayed = true;
+  }
+
+        document.addEventListener('keydown', function(e) {
+          if (e.which === 32) {
+            resetGame();
+            startSFX.play();
+            soundPlayed = false;
+          }
+        });
+      }
+
+    
+      platforms2.forEach(function(platform2) {
+        
+        context2.drawImage(platformImage2, platform2.x, platform2.y, platformWidth, platformHeight);
+
+        if (
+          player2.dy > 0 &&
+          prevPlayerY2 + player2.height <= platform2.y &&
+          player2.x < platform2.x + platformWidth &&
+          player2.x + player2.width > platform2.x &&  
+          player2.y < platform2.y + platformHeight &&
+          player2.y + player2.height > platform2.y
+        ) {
+          player2.dy = bounceVelocity;
+          jumpSFX2.play();
+        }
+      });
+
+      
+      if (player2.dx < 0) {
+    context2.drawImage(playerImageL2, player2.x, player2.y, player2.width, player2.height);
+} else if (player2.dx > 0) {
+    context2.drawImage(playerImageR2, player2.x, player2.y, player2.width, player2.height);
+} else {
+    context2.drawImage(playerImage2, player2.x, player2.y, player2.width, player2.height);
+}
+
+      prevPlayerY2 = player2.y;
+
+      platforms2 = platforms2.filter(function(platform2) {
+        return platform2.y < canvas2.height;
+      });
+      displayScore();
+      reset();
+     
+    }
+
+    document.addEventListener('keydown', function (e) {
+      if (e.which === 37) {
+        keydown1 = true; 
+        player1.dx = -4; 
+      } else if (e.which === 39) { 
+        keydown1 = true; 
+        player1.dx = 4; 
+      } else if (e.which === 65) {
+        keydown2 = true;
+        player2.dx = -4;
+      } else if (e.which === 68) {
+        keydown2 = true;
+        player2.dx = 4;
+      }
+    });
+
+    document.addEventListener('keyup', function (e) {
+      if (e.which === 37 || e.which === 39) {
+        keydown1 = false;
+      } else if (e.which === 65 || e.which === 68) {
+        keydown2 = false;
+      }
+    });
+    document.addEventListener('click', function() {
+  playButtonSound();
+});
+
+    requestAnimationFrame(loop);
+  </script>
+</body>
+</html>

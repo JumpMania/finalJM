@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html langt="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JumpMania</title>
+        <link rel="icon" type="image/x-icon" href="Jumpmania LOGO.png">
+        <link rel="stylesheet" type="text/css" href="JumpMania.css">
+    </head>
+    <body>
+      <div id="loader">
+        <div class="spinner"></div> </div>
+        <div class="icon_container">
+          <img src="Jumpmania LOGO.png" alt="Icon" class="image1">
+        </div>
+        <h1 class="title">JumpMania</h1>
+        <p class="description">
+            Welcome to Jumpmania, where the fun never stops! Dive into a world of excitement with three thrilling games awaiting you.
+            Our main attraction features two exciting game modes guaranteed to keep you entertained for hours. Designed with children in
+            mind, but enjoyed by all ages, Jumpmania is your ultimate destination for fun, happiness, and banishing boredom. Join us and 
+            embark on an adventure filled with joy and excitement!
+        </p>
+        
+        <!--Gameplay Slides-->
+        <div class="container">
+            <div class="carousel">
+              <div class="slides">
+                <div class="slide">
+                    <img src="skyhop_slide1.png" alt="Skyhop Slide 1">
+                </div>
+                <div class="slide">
+                    <img src="skyhop_slide2.png" alt="Skyhop Slide 2">
+                </div>
+                <div class="slide">
+                    <img src="skyhop_slide3.png" alt="Skyhop Slide 3">
+                </div>
+              </div>
+            </div>
+          
+            <div class="carousel">
+              <div class="slides">
+                <div class="slide">
+                    <img src="traildashSlide1.png" alt="Trail Dash Slide 1">
+                </div>
+                <div class="slide">
+                    <img src="traildashSlide2.png" alt="Trail Dash Slide 2">
+                </div>
+                <div class="slide">
+                    <img src="traildashSlide3.png" alt="Trail Dash Slide 3">
+                </div>
+              </div>
+            </div>
+          
+            <div class="carousel">
+              <div class="slides">
+                <div class="slide">
+                    <img src="tower_climber_slide1.png" alt="Tower Climber Slide 1">
+                </div>
+                <div class="slide">
+                    <img src="tower_climber_slide2.png" alt="Tower Climber Slide 2">
+                </div>
+                <div class="slide">
+                    <img src="tower_climber_slide3.png" alt="Tower Climber Slide 3">
+                </div>
+              </div>
+            </div>
+          </div>
+          <script src="JumpMania.js"></script>
+
+    <!--Skyhop Main Game-->
+    
+    <p class="skyhop">Skyhop</p>
+    <p class="skyhop_des">
+          Embark on a gravity-defying journey in Sky Hop!
+          Navigate through a whimsical world of floating 
+          platforms. Test your skills in Single Player mode
+          or challenge friends in Multiplayer mode, where
+          the goal is to reach the target score before your
+          opponent falls. With its charming visuals and
+          intuitive controls, Sky Hop is an addictive
+          adventure for all ages. Ready to
+          soar to new heights?
+    </p>
+
+        <a href="Skyhop.html" class="skyhop_play">play</a>
+
+        <div class="gallery1">
+          <div class="gallery-item1">
+            <img src="pic1Sky.png" alt="Image 1">
+          </div>
+          <div class="gallery-item2">
+            <img src="pic2Sky.png" alt="Image 2">
+          </div>
+          <div class="gallery-item3">
+            <img src="pic3Sky.png" alt="Image 3">
+          </div>
+          <div class="gallery-item4">
+            <img src="pic4Sky.png" alt="Image 4">
+          </div>
+        </div>
+
+        <div id="modal1" class="modal1"></div>
+
+        <!--Image to fullscreen-->
+        <script>
+          window.onload = function() {
+            document.getElementById("loader").style.display = "none";
+          };
+            const galleryItems1 = document.querySelectorAll('.gallery-item1');
+            const galleryItems2 = document.querySelectorAll('.gallery-item2');
+            const galleryItems3 = document.querySelectorAll('.gallery-item3');
+            const galleryItems4 = document.querySelectorAll('.gallery-item4');
+            const modal1 = document.getElementById('modal1');
+
+            galleryItems1.forEach(item => {
+              item.addEventListener('click', () => {
+                const imgSrc = item.querySelector('img').src;
+                modal1.innerHTML = `<img src="${imgSrc}" alt="Full Screen Image">`;
+                modal1.style.display = 'block';
+              });
+            });
+
+            modal1.addEventListener('click', () => {
+              modal1.style.display = 'none';
+            });
+            galleryItems2.forEach(item => {
+              item.addEventListener('click', () => {
+                const imgSrc = item.querySelector('img').src;
+                modal1.innerHTML = `<img src="${imgSrc}" alt="Full Screen Image">`;
+                modal1.style.display = 'block';
+              });
+            });
+
+            modal1.addEventListener('click', () => {
+              modal1.style.display = 'none';
+            });
+            galleryItems3.forEach(item => {
+              item.addEventListener('click', () => {
+                const imgSrc = item.querySelector('img').src;
+                modal1.innerHTML = `<img src="${imgSrc}" alt="Full Screen Image">`;
+                modal1.style.display = 'block';
+              });
+            });
+
+            modal1.addEventListener('click', () => {
+              modal1.style.display = 'none';
+            });
+            galleryItems4.forEach(item => {
+              item.addEventListener('click', () => {
+                const imgSrc = item.querySelector('img').src;
+                modal1.innerHTML = `<img src="${imgSrc}" alt="Full Screen Image">`;
+                modal1.style.display = 'block';
+              });
+            });
+
+            modal1.addEventListener('click', () => {
+              modal1.style.display = 'none';
+            });
+        </script>
+
+        <!--Trail Dash Mini Game-->
+        <p class="trail_dash">Trail Dash</p>
+        <p class="trail_dash_des">
+          Embark on an adrenaline-pumping adventure in our
+          exhilarating game, where lightning-fast
+          reflexes are your ticket to survival! As you navigate
+          the landscape, you'll encounter towering
+          tree stumps blocking your path. Dodge and weave through
+           the obstacles with precision. 
+        </p>
+        <a href="Trail_Dash_home.html" class="trail_dash_play">play</a>
+        
+        <div class="gallery2">
+          <div class="gallery-item5">
+            <img src="pic2Trail.png" alt="Image 1">
+          </div>
+          <div class="gallery-item6">
+            <img src="pic1Trail.png" alt="Image 2">
+          </div>
+          <div class="gallery-item7">
+            <img src="pic3Trail.png" alt="Image 3">
+          </div>
+          <div class="gallery-item8">
+            <img src="pic4Trail.png" alt="Image 4">
+          </div>
+        </div>
+
+        <div id="modal2" class="modal2"></div>
+
+        <!--Image to fullscreen-->
+        <script>
+            const galleryItems5 = document.querySelectorAll('.gallery-item5');
+            const galleryItems6 = document.querySelectorAll('.gallery-item6');
+            const galleryItems7 = document.querySelectorAll('.gallery-item7');
+            const galleryItems8 = document.querySelectorAll('.gallery-item8');
+            const modal2 = document.getElementById('modal2');
+
+            galleryItems5.forEach(item => {
+              item.addEventListener('click', () => {
+                const imgSrc = item.querySelector('img').src;
+                modal2.innerHTML = `<img src="${imgSrc}" alt="Full Screen Image">`;
+                modal2.style.display = 'block';
+              });
+            });
+
+            modal2.addEventListener('click', () => {
+              modal2.style.display = 'none';
+            });
+            galleryItems6.forEach(item => {
+              item.addEventListener('click', () => {
+                const imgSrc = item.querySelector('img').src;
+                modal2.innerHTML = `<img src="${imgSrc}" alt="Full Screen Image">`;
+                modal2.style.display = 'block';
+              });
+            });
+
+            modal2.addEventListener('click', () => {
+              modal2.style.display = 'none';
+            });
+            galleryItems7.forEach(item => {
+              item.addEventListener('click', () => {
+                const imgSrc = item.querySelector('img').src;
+                modal2.innerHTML = `<img src="${imgSrc}" alt="Full Screen Image">`;
+                modal2.style.display = 'block';
+              });
+            });
+
+            modal2.addEventListener('click', () => {
+              modal2.style.display = 'none';
+            });
+            galleryItems8.forEach(item => {
+              item.addEventListener('click', () => {
+                const imgSrc = item.querySelector('img').src;
+                modal2.innerHTML = `<img src="${imgSrc}" alt="Full Screen Image">`;
+                modal2.style.display = 'block';
+              });
+            });
+
+            modal2.addEventListener('click', () => {
+              modal2.style.display = 'none';
+            });
+        </script>
+
+        <!--Tower Climber Mini Game-->
+        <p class="tower_climber">Tower Climber</p>
+        <p class="tower_climber_des">
+          In Tower Climber, your goal is simple, climb the tower.
+          But watch out! Deadly spikes litter the walls, ready to end
+          your climb with a single touch. Use quick reflexes and smart
+          moves to dodge the spikes and reach new heights. How far can
+          you climb before the spikes bring you down? Test your skills
+          in this addictive and challenging game of vertical survival!
+        </p>
+        
+        <a href="tower_climber_home.html" class="tower_climber_play">play</a>
+        
+        <div class="gallery3">
+          <div class="gallery-item9">
+            <img src="pic1Tower.png" alt="Image 1">
+          </div>
+          <div class="gallery-item10">
+            <img src="pic2Tower.png" alt="Image 2">
+          </div>
+          <div class="gallery-item11">
+            <img src="pic3Tower.png" alt="Image 3">
+          </div>
+          <div class="gallery-item12">
+            <img src="pic4Tower.png" alt="Image 4">
+          </div>
+        </div>
+
+        <div id="modal3" class="modal3"></div>
+
+        <!--Image to fullscreen-->
+        <script>
+            const galleryItems9 = document.querySelectorAll('.gallery-item9');
+            const galleryItems10 = document.querySelectorAll('.gallery-item10');
+            const galleryItems11 = document.querySelectorAll('.gallery-item11');
+            const galleryItems12 = document.querySelectorAll('.gallery-item12');
+            const modal3 = document.getElementById('modal3');
+
+            galleryItems9.forEach(item => {
+              item.addEventListener('click', () => {
+                const imgSrc = item.querySelector('img').src;
+                modal3.innerHTML = `<img src="${imgSrc}" alt="Full Screen Image">`;
+                modal3.style.display = 'block';
+              });
+            });
+
+            modal3.addEventListener('click', () => {
+              modal3.style.display = 'none';
+            });
+            galleryItems10.forEach(item => {
+              item.addEventListener('click', () => {
+                const imgSrc = item.querySelector('img').src;
+                modal3.innerHTML = `<img src="${imgSrc}" alt="Full Screen Image">`;
+                modal3.style.display = 'block';
+              });
+            });
+
+            modal3.addEventListener('click', () => {
+              modal3.style.display = 'none';
+            });
+            galleryItems11.forEach(item => {
+              item.addEventListener('click', () => {
+                const imgSrc = item.querySelector('img').src;
+                modal3.innerHTML = `<img src="${imgSrc}" alt="Full Screen Image">`;
+                modal3.style.display = 'block';
+              });
+            });
+
+            modal3.addEventListener('click', () => {
+              modal3.style.display = 'none';
+            });
+            galleryItems12.forEach(item => {
+              item.addEventListener('click', () => {
+                const imgSrc = item.querySelector('img').src;
+                modal3.innerHTML = `<img src="${imgSrc}" alt="Full Screen Image">`;
+                modal3.style.display = 'block';
+              });
+            });
+
+            modal3.addEventListener('click', () => {
+              modal3.style.display = 'none';
+            });
+        </script>
+
+    </body>
+</html>
